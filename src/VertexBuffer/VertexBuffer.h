@@ -9,7 +9,8 @@
 class VertexBuffer
 {
 public:
-    VertexBuffer(VkDevice device, VkPhysicalDevice physicalDevice,
+    VertexBuffer();
+    void createVertexBuffer(VkDevice device, VkPhysicalDevice physicalDevice,
         VkCommandPool commandPool, VkQueue graphicsQueue,
         const std::vector<Vertex>& vertices,
         VkBuffer& vertexBuffer, VkDeviceMemory& vertexBufferMemory);

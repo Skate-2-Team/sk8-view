@@ -8,7 +8,8 @@
 class IndexBuffer
 {
 public:
-    IndexBuffer(VkDevice device, VkPhysicalDevice physicalDevice,
+    IndexBuffer();
+    void createIndexBuffer(VkDevice device, VkPhysicalDevice physicalDevice,
         VkCommandPool commandPool, VkQueue graphicsQueue,
         const std::vector<uint32_t>& indices,
         VkBuffer& indexBuffer, VkDeviceMemory& indexBufferMemory);

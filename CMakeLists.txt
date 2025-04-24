@@ -20,6 +20,7 @@ FetchContent_MakeAvailable(glm)
 # Add source files
 set(SOURCES
     src/main.cpp
+    src/Vertex/Vertex.cpp
     src/VertexBuffer/VertexBuffer.cpp
     src/IndexBuffer/IndexBuffer.cpp
     src/BufferUtils/BufferUtils.cpp
