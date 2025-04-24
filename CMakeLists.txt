@@ -17,8 +17,25 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(glm)
 
-add_executable(${TARGET_NAME} 
+# Add source files
+set(SOURCES
     src/main.cpp
+    src/VertexBuffer/VertexBuffer.cpp
+    src/IndexBuffer/IndexBuffer.cpp
+    src/BufferUtils/BufferUtils.cpp
+)
+
+# Add header files
+set(HEADERS
+    src/Vertex/Vertex.h
+    src/VertexBuffer/VertexBuffer.h
+    src/IndexBuffer/IndexBuffer.h
+    src/BufferUtils/BufferUtils.h
+)
+
+
+add_executable(
+    ${TARGET_NAME} ${SOURCES} ${HEADERS}
 )
 
 target_link_libraries(${TARGET_NAME} 
