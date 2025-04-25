@@ -1,6 +1,7 @@
 #include "Vertex.h"
 
-VkVertexInputBindingDescription Vertex::getBindingDescription() {
+VkVertexInputBindingDescription Vertex::getBindingDescription()
+{
     VkVertexInputBindingDescription bindingDescription{};
     bindingDescription.binding = 0;
     bindingDescription.stride = sizeof(Vertex);
@@ -8,7 +9,8 @@ VkVertexInputBindingDescription Vertex::getBindingDescription() {
     return bindingDescription;
 }
 
-std::array<VkVertexInputAttributeDescription, 3> Vertex::getAttributeDescriptions() {
+std::array<VkVertexInputAttributeDescription, 3> Vertex::getAttributeDescriptions()
+{
     std::array<VkVertexInputAttributeDescription, 3> attributeDescriptions{};
 
     // Position

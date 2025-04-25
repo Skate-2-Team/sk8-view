@@ -1,13 +1,16 @@
 #include "BufferUtils.h"
 #include <stdexcept>
 
-uint32_t findMemoryType(VkPhysicalDevice physicalDevice, uint32_t typeFilter, VkMemoryPropertyFlags properties) {
+uint32_t findMemoryType(VkPhysicalDevice physicalDevice, uint32_t typeFilter, VkMemoryPropertyFlags properties)
+{
     VkPhysicalDeviceMemoryProperties memProperties;
     vkGetPhysicalDeviceMemoryProperties(physicalDevice, &memProperties);
 
-    for (uint32_t i = 0; i < memProperties.memoryTypeCount; i++) {
+    for (uint32_t i = 0; i < memProperties.memoryTypeCount; i++)
+    {
         if ((typeFilter & (1 << i)) &&
-            (memProperties.memoryTypes[i].propertyFlags & properties) == properties) {
+            (memProperties.memoryTypes[i].propertyFlags & properties) == properties)
+        {
             return i;
         }
     }
@@ -16,7 +19,8 @@ uint32_t findMemoryType(VkPhysicalDevice physicalDevice, uint32_t typeFilter, Vk
 }
 
 void copyBuffer(VkDevice device, VkCommandPool commandPool, VkQueue graphicsQueue,
-                VkBuffer srcBuffer, VkBuffer dstBuffer, VkDeviceSize size) {
+                VkBuffer srcBuffer, VkBuffer dstBuffer, VkDeviceSize size)
+{
 
     VkCommandBufferAllocateInfo allocInfo{};
     allocInfo.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO;
@@ -54,7 +58,8 @@ void copyBuffer(VkDevice device, VkCommandPool commandPool, VkQueue graphicsQueu
 
 void createBuffer(VkDevice device, VkPhysicalDevice physicalDevice, VkDeviceSize size,
                   VkBufferUsageFlags usage, VkMemoryPropertyFlags properties,
-                  VkBuffer& buffer, VkDeviceMemory& bufferMemory) {
+                  VkBuffer &buffer, VkDeviceMemory &bufferMemory)
+{
 
     VkBufferCreateInfo bufferInfo{};
     bufferInfo.sType = VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO;
@@ -62,7 +67,8 @@ void createBuffer(VkDevice device, VkPhysicalDevice physicalDevice, VkDeviceSize
     bufferInfo.usage = usage;
     bufferInfo.sharingMode = VK_SHARING_MODE_EXCLUSIVE;
 
-    if (vkCreateBuffer(device, &bufferInfo, nullptr, &buffer) != VK_SUCCESS) {
+    if (vkCreateBuffer(device, &bufferInfo, nullptr, &buffer) != VK_SUCCESS)
+    {
         throw std::runtime_error("Failed to create buffer!");
     }
 
@@ -75,7 +81,8 @@ void createBuffer(VkDevice device, VkPhysicalDevice physicalDevice, VkDeviceSize
 
     allocInfo.memoryTypeIndex = findMemoryType(physicalDevice, memRequirements.memoryTypeBits, properties);
 
-    if (vkAllocateMemory(device, &allocInfo, nullptr, &bufferMemory) != VK_SUCCESS) {
+    if (vkAllocateMemory(device, &allocInfo, nullptr, &bufferMemory) != VK_SUCCESS)
+    {
         throw std::runtime_error("Failed to allocate buffer memory!");
     }
 

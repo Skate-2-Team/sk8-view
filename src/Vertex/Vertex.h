@@ -3,7 +3,8 @@
 #include <glm/glm.hpp>
 #include <vulkan/vulkan.h>
 
-struct Vertex {
+struct Vertex
+{
     glm::vec3 position;
     glm::vec3 normal;
     glm::vec2 uv;
@@ -11,4 +12,3 @@ struct Vertex {
     static VkVertexInputBindingDescription getBindingDescription();
     static std::array<VkVertexInputAttributeDescription, 3> getAttributeDescriptions();
 };
-

@@ -24,6 +24,7 @@ set(SOURCES
     src/VertexBuffer/VertexBuffer.cpp
     src/IndexBuffer/IndexBuffer.cpp
     src/BufferUtils/BufferUtils.cpp
+    src/Sk8view.cpp
 )
 
 # Add header files
@@ -32,12 +33,15 @@ set(HEADERS
     src/VertexBuffer/VertexBuffer.h
     src/IndexBuffer/IndexBuffer.h
     src/BufferUtils/BufferUtils.h
+    src/Sk8view.h
+    src/Log.h
 )
-
 
 add_executable(
     ${TARGET_NAME} ${SOURCES} ${HEADERS}
 )
+
+include_directories(${CMAKE_SOURCE_DIR}/src)
 
 target_link_libraries(${TARGET_NAME} 
 Vulkan::Vulkan
