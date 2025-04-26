@@ -35,6 +35,7 @@ set(HEADERS
     src/BufferUtils/BufferUtils.h
     src/Sk8view.h
     src/Log.h
+    src/VulkanUtils.h
 )
 
 add_executable(
